@@ -48,12 +48,24 @@ nav a:hover, .header-link:hover { opacity: .55; }
 
 .header-link {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 
-.header-link span { margin-left: 7px; }
+.arrow-mark {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.15;
+  vertical-align: middle;
+}
 
 .hero {
   min-height: calc(100vh - 92px);
@@ -95,13 +107,16 @@ h1 em, h2 em { color: var(--brown); font-weight: 400; }
   width: fit-content;
   margin-top: 72px;
   padding-bottom: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 31px;
   border-bottom: 1px solid var(--ink);
   font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.scroll span { margin-left: 35px; }
+.arrow-down { width: 14px; height: 14px; }
 
 .statement {
   padding: 16vw 10vw;
@@ -175,17 +190,100 @@ h1 em, h2 em { color: var(--brown); font-weight: 400; }
 
 .contact {
   padding: 15vw 10vw 17vw;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: 10vw;
+  align-items: start;
   background: var(--ivory);
 }
 
 .contact h2 { font-size: clamp(56px, 8vw, 115px); }
-.email {
-  display: inline-block;
-  margin-top: 70px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--ink);
+
+.contact-note {
+  max-width: 330px;
+  margin: 48px 0 0;
   font-size: 13px;
-  letter-spacing: .06em;
+  line-height: 1.7;
+  opacity: .65;
+}
+
+.contact-form {
+  padding-top: 6px;
+  border-top: 1px solid var(--ink);
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 21px 0 17px;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-field label {
+  margin-bottom: 11px;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 112px;
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M2.5 5 7 9.5 11.5 5' fill='none' stroke='%23171513' stroke-width='1'/%3E%3C/svg%3E") no-repeat right center;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { box-shadow: 0 1px 0 var(--brown); }
+
+.submit-button {
+  margin-top: 34px;
+  padding: 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.submit-button:hover { color: var(--brown); border-color: var(--brown); }
+
+.form-status {
+  min-height: 1.5em;
+  margin: 18px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: .65;
 }
 
 footer {
@@ -212,5 +310,7 @@ footer {
   .project-grid { display: block; }
   .project-card { margin-bottom: 35px; }
   .project-placeholder, .project-large .project-placeholder { min-height: 60vw; }
+  .contact { display: block; padding: 20vw 7vw; }
+  .contact-form { margin-top: 55px; }
   footer { gap: 15px; flex-wrap: wrap; }
 }
