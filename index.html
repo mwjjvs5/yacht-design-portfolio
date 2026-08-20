@@ -18,7 +18,7 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="header-link" href="#contact">Let's talk <span>↗</span></a>
+    <a class="header-link" href="#contact">Let's talk <svg class="arrow-mark" aria-hidden="true" viewBox="0 0 18 18"><path d="M4 14 14 4M7 4h7v7"/></svg></a>
   </header>
 
   <main>
@@ -29,7 +29,7 @@
         A personal portfolio exploring refined yacht interiors, spatial design
         and the details that shape life at sea.
       </p>
-      <a class="scroll" href="#work">Explore the work <span>↓</span></a>
+      <a class="scroll" href="#work">Explore the work <svg class="arrow-mark arrow-down" aria-hidden="true" viewBox="0 0 18 18"><path d="M9 2v13M4 10l5 5 5-5"/></svg></a>
     </section>
 
     <section class="statement" id="about">
@@ -77,9 +77,38 @@
     </section>
 
     <section class="contact" id="contact">
-      <p class="eyebrow">03 / Contact</p>
-      <h2>Let's create something<br><em>exceptional.</em></h2>
-      <a class="email" href="mailto:hello@yacht-design-portfolio.com">hello@yacht-design-portfolio.com ↗</a>
+      <div class="contact-intro">
+        <p class="eyebrow">03 / Contact</p>
+        <h2>Let's create something<br><em>exceptional.</em></h2>
+        <p class="contact-note">Tell me a little about your project. Submitting the form opens a pre-addressed email draft.</p>
+      </div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="project">Project type</label>
+          <select id="project" name="project" required>
+            <option value="" selected disabled>Select a project type</option>
+            <option>Yacht interior</option>
+            <option>Spatial concept</option>
+            <option>Design collaboration</option>
+            <option>Other enquiry</option>
+          </select>
+        </div>
+        <div class="form-field form-field-message">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="submit-button" type="submit">Begin a conversation <svg class="arrow-mark" aria-hidden="true" viewBox="0 0 18 18"><path d="M4 14 14 4M7 4h7v7"/></svg></button>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
