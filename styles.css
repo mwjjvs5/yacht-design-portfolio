@@ -69,11 +69,51 @@ nav a:hover, .header-link:hover { opacity: .55; }
 
 .hero {
   min-height: calc(100vh - 92px);
-  padding: 13vh 10vw 8vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 10vh 10vw 8vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 27vw, 390px);
+  gap: 7vw;
+  align-items: center;
   background: var(--ivory);
+}
+
+.hero-content { min-width: 0; }
+
+.hero-portrait {
+  margin: 0;
+  align-self: center;
+}
+
+.portrait-placeholder {
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border: 1px solid rgba(74, 48, 34, .24);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.28), transparent 52%),
+    #d8ccbb;
+  color: var(--brown);
+}
+
+.portrait-placeholder span {
+  display: grid;
+  place-items: center;
+  width: 48%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(74, 48, 34, .34);
+  border-radius: 50%;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 58px);
+  letter-spacing: -.08em;
+}
+
+.hero-portrait figcaption {
+  margin-top: 12px;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .58;
 }
 
 .eyebrow {
@@ -302,7 +342,14 @@ footer {
 @media (max-width: 700px) {
   .site-header { grid-template-columns: 1fr auto; }
   nav { display: none; }
-  .hero { padding-left: 7vw; padding-right: 7vw; }
+  .hero {
+    display: block;
+    padding: 16vw 7vw 14vw;
+  }
+  .hero-portrait {
+    width: min(65vw, 310px);
+    margin: 60px 0 0;
+  }
   .statement { display: block; padding: 22vw 7vw; }
   .statement > p:last-child { margin: 55px 0 0; }
   .work { padding: 20vw 7vw; }
